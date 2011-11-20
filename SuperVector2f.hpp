@@ -9,6 +9,7 @@ class SuperVector2f: public sf::Vector2f {
 
 	friend std::ostream& operator<< (std::ostream& str, const SuperVector2f& v);
 	public:
+		SuperVector2f();
 		SuperVector2f(float x, float y);
 		SuperVector2f(sf::Vector2f vec);
 	

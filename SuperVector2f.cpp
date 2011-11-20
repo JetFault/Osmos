@@ -1,5 +1,9 @@
 #include "SuperVector2f.hpp"
 
+SuperVector2f::SuperVector2f()
+	: sf::Vector2f(0, 0) {
+}
+
 SuperVector2f::SuperVector2f(float x, float y)
 	: sf::Vector2f(x, y) {
 }

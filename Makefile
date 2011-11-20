@@ -3,20 +3,19 @@ LDFLAGS=-L/filer/tmp2/contrib/lib -lsfml-system -lsfml-graphics -lsfml-window -l
 EXECCOMPILE=g++ ${CFLAGS} ${LDFLAGS}
 OBJCOMPILE=g++ ${CFLAGS}
 
-all: Hello
-
-
-Planet.o: Planet.cpp Planet.hpp
-	${COMPILE} -c Planet.cpp
+all: Hello Game
 
 Hello: Hello.cpp SuperVector2f.o
 	${EXECCOMPILE} -o Hello SuperVector2f.o Hello.cpp
 
-Game: Game.cpp SuperVector2f.o
-	${EXECCOMPILE} -o Game SuperVector2f.o Game.cpp
+Game: Game.cpp SuperVector2f.o Planet.o
+	${EXECCOMPILE} -o Game SuperVector2f.o Planet.o Game.cpp
 
 SuperVector2f.o: SuperVector2f.cpp
 	${OBJCOMPILE} -c SuperVector2f.cpp
+
+Planet.o: Planet.cpp
+	${OBJCOMPILE} -c Planet.cpp
 	
 clean:
 	rm -f Hello Game *.o

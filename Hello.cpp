@@ -3,7 +3,7 @@
 
 int main()
 {
-	SuperVector2f vec(10, 50);
+	SuperVector2f vec (10.0f, 50.0f);
 
 	std::cout << vec << std::endl;
 

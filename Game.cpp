@@ -22,7 +22,7 @@ int main() {
 	sf::Color mainColor(100, 100, 100);
 
 	// List of planets 
-	vector<Planet::Planet> Planets;
+	vector<Planet> Planets;
 
 	// The center of the window
 	int WindowMidX = App.GetWidth()/2;
@@ -30,7 +30,7 @@ int main() {
 
 	// Add the main planet (being controlled by the gamer) to the center
 	// of the window and then add it to the list of planets.
-	Planet::Planet mainPlanet(WindowMidX, WindowMidY, STARTING_PLANET_SIZE, mainColor);
+	Planet mainPlanet(WindowMidX, WindowMidY, STARTING_PLANET_SIZE, mainColor);
 	Planets.push_back(mainPlanet);
 
 	// Start game loop
@@ -49,20 +49,19 @@ int main() {
 				App.Close();
 			}
 
-			// Clear screen
-			App.Clear();
-			
 			// Track mouse clicks
 			if(Event.Type == sf::Event::MouseButtonReleased) {
 				cout << "X = " << Event.MouseButton.X << " Y = " << Event.MouseButton.Y << endl;
 			}
 		}
 
+		App.Clear();
+
 		// Redraw all the circles
-		for (int i = Planets.begin(); i != Planet.end(); i++) {
+		for (vector<Planet>::iterator it = Planets.begin(); it < Planets.end(); it++) {
 
 			// Current planet
-			Planet CurrentPlanet = Planets[i];
+			Planet CurrentPlanet = *it;
 
 			// Draw the planet
 			App.Draw(CurrentPlanet.GetShape());

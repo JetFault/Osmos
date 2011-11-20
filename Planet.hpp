@@ -1,19 +1,19 @@
 #ifndef PLANET_HPP_
 #define PLANET_HPP_
 
-#include <Vector2.hpp>
-#include <Shape.hpp>
+#include <SFML/Graphics/Shape.hpp>
+#include "SuperVector2f.hpp"
 
 class Planet {
 	sf::Shape shape;
-	SuperVector2f acceleration;
+	SuperVector2f acceleration; 
 	SuperVector2f velocity;
 	float size;
 
 	public:
 		Planet(float x, float y, float size, sf::Color color);
 		
-		sf::Shape& GetShape() { return shape; }
+		sf::Shape GetShape() { return shape; }
 
 		void SetAccel(SuperVector2f acc) { acceleration = acc; }
 		SuperVector2f GetAccel() { return acceleration; }
@@ -21,7 +21,7 @@ class Planet {
 		void SetVeloc(SuperVector2f vel) { velocity = vel; }
 		SuperVector2f GetVeloc() { return velocity; }
 
-		void ResetAccel() { acceleration.x = acceleration.y = 0; }
+		void ResetAccel() { acceleration.x = 0; acceleration.y = 0; }
 		
 		/**
 		 * Apply a force onto the planet.
