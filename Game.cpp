@@ -26,7 +26,7 @@ int main() {
 
 	// The center of the window
 	int WindowMidX = App.GetWidth()/2;
-	int WindowMidY = App.getHeight()/2;
+	int WindowMidY = App.GetHeight()/2;
 
 	// Add the main planet (being controlled by the gamer) to the center
 	// of the window and then add it to the list of planets.
