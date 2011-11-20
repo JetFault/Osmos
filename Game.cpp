@@ -32,6 +32,13 @@ int main() {
 	// of the window and then add it to the list of planets.
 	Planet mainPlanet(WindowMidX, WindowMidY, STARTING_PLANET_SIZE, mainColor);
 	Planets.push_back(&mainPlanet);
+
+	Planet Planet1(WindowMidX/2, WindowMidY/2, 30, mainColor);
+	Planets.push_back(&Planet1);
+
+	Planet Planet2(WindowMidX*1.5, WindowMidY*1.5, STARTING_PLANET_SIZE, mainColor);
+	Planets.push_back(&Planet2);
+	
 /*
 	sf::Shape s = mainPlanet.GetShape();
 
@@ -73,6 +80,9 @@ int main() {
 				cout << " Mouse was clicked at " << Event.MouseButton.X << "," << Event.MouseButton.Y << " I am at " << mainPlanet.GetShape().GetPosition().x << "," << mainPlanet.GetShape().GetPosition().y << " direction = " << direction << std::endl;
 
 				mainPlanet.ApplyForce(direction, 3);
+
+				Planet poop(mainPlanet.GetShape().GetCenter().x + WindowMidX, mainPlanet.GetShape().GetCenter().y + WindowMidY, 10, sf::Color(255,0,0));
+				poop.ApplyForce(-direction, 3);
 			}
 		}
 
