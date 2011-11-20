@@ -7,9 +7,14 @@ all: Hello Game
 go:
 	./Game
 
-Hello: Hello.cpp
-	${COMPILE} -o Hello Hello.cpp
-Game: Game.cpp
-	${COMPILE} -o Game Game.cpp
+Hello: Hello.cpp SuperVector2f.o
+	${COMPILE} -o Hello SuperVector2f.o Hello.cpp
+
+Game: Game.cpp SuperVector2f.o
+	${COMPILE} -o Game SuperVector2f.o Game.cpp
+
+SuperVector2f.o: SuperVector2f.cpp
+	${COMPILE} -c SuperVector2f.cpp
+	
 clean:
-	rm -f Hello Game
+	rm -f Hello Game *.o
