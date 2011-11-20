@@ -11,5 +11,9 @@ Hello: Hello.cpp
 	${COMPILE} -o Hello Hello.cpp
 Game: Game.cpp
 	${COMPILE} -o Game Game.cpp
+
+Planet.o: Planet.cpp Planet.hpp
+	${COMPILE} -c Planet.cpp
+
 clean:
-	rm -f Hello Game
+	rm -f Hello Game *.o
