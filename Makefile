@@ -2,14 +2,14 @@ CFLAGS=-I/filer/tmp2/contrib/include -Wall -pedantic -g
 LDFLAGS=-L/filer/tmp2/contrib/lib -lsfml-system -lsfml-graphics -lsfml-window -lsfml-audio -lsndfile -lopenal
 COMPILE=g++ ${CFLAGS} ${LDFLAGS}
 
-all: Hello graphics-shape
+all: Hello Game
 
 go:
-	./graphics-shape
+	./Game
 
 Hello: Hello.cpp
 	${COMPILE} -o Hello Hello.cpp
-graphics-shape: graphics-shape.cpp
-	${COMPILE} -o graphics-shape graphics-shape.cpp
+Game: Game.cpp
+	${COMPILE} -o Game Game.cpp
 clean:
-	rm Hello graphics-shape
+	rm -f Hello Game
