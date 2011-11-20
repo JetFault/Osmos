@@ -5,6 +5,9 @@ OBJCOMPILE=g++ ${CFLAGS}
 
 all: Hello Game
 
+go:
+	./Game
+
 Hello: Hello.cpp SuperVector2f.o
 	${EXECCOMPILE} -o Hello SuperVector2f.o Hello.cpp
 

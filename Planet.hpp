@@ -13,7 +13,7 @@ class Planet {
 	public:
 		Planet(float x, float y, float size, sf::Color color);
 		
-		sf::Shape GetShape() { return shape; }
+		sf::Shape& GetShape() { return shape; }
 
 		void SetAccel(SuperVector2f acc) { acceleration = acc; }
 		SuperVector2f GetAccel() { return acceleration; }
