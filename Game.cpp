@@ -33,10 +33,10 @@ int main() {
 	Planet mainPlanet(WindowMidX, WindowMidY, STARTING_PLANET_SIZE, mainColor);
 	Planets.push_back(&mainPlanet);
 
-	Planet Planet1(WindowMidX/2, WindowMidY/2, 30, mainColor);
+	Planet Planet1(WindowMidX/2, WindowMidY/2, 20, mainColor);
 	Planets.push_back(&Planet1);
 
-	Planet Planet2(WindowMidX*1.5, WindowMidY*1.5, STARTING_PLANET_SIZE, mainColor);
+	Planet Planet2(WindowMidX*1.5, WindowMidY*1.5, 20, mainColor);
 	Planets.push_back(&Planet2);
 	
 /*
@@ -81,8 +81,9 @@ int main() {
 
 				mainPlanet.ApplyForce(direction, 3);
 
-				Planet poop(mainPlanet.GetShape().GetCenter().x + WindowMidX, mainPlanet.GetShape().GetCenter().y + WindowMidY, 10, sf::Color(255,0,0));
-				poop.ApplyForce(-direction, 3);
+				Planet* poop = new Planet(mainPlanet.GetShape().GetPosition().x + WindowMidX - (direction.x * STARTING_PLANET_SIZE), mainPlanet.GetShape().GetPosition().y + WindowMidY - (direction.y*STARTING_PLANET_SIZE), 10, sf::Color(255,0,0));
+				poop->ApplyForce(-direction, 3);
+				Planets.push_back(poop);
 			}
 		}
 
