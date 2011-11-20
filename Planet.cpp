@@ -1,10 +1,7 @@
 #include "Planet.hpp"
 
 Planet::Planet(float x, float y, float size, sf::Color color) {
-	std::cout << " x = " << x << " y = " << y << std::endl;
-	this->shape = sf::Shape::Circle(0, 0, size, color);
-	//this->shape.SetPosition(Vector2f(x, y));
-	std::cout << "My position is " << this->shape.GetPosition().x << ", " << this->shape.GetPosition().y << std::endl;
+	this->shape = sf::Shape::Circle(x, y, size, color);
 	this->size = size;
 }
 
@@ -13,6 +10,11 @@ Planet::~Planet() {
 
 void Planet::ApplyForce(SuperVector2f direc, float mag) {
 	this->acceleration += (direc * mag);
+	if(this->acceleration.Length() > PLANET_MAX_ACCELERATION) {
+		this->acceleration.Normalize();
+		this->acceleration.x = (this->acceleration.x) * PLANET_MAX_ACCELERATION;
+		this->acceleration.y = (this->acceleration.y) * PLANET_MAX_ACCELERATION;
+	}
 
 }
 

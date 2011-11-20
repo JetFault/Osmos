@@ -4,6 +4,8 @@
 #include <SFML/Graphics/Shape.hpp>
 #include "SuperVector2f.hpp"
 
+#define PLANET_MAX_ACCELERATION 10
+
 class Planet {
 	sf::Shape shape;
 	SuperVector2f acceleration; 

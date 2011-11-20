@@ -65,14 +65,14 @@ int main() {
 
 			// Track mouse clicks
 			if(Event.Type == sf::Event::MouseButtonReleased) {
-				float MouseX = Event.MouseButton.X;
-				float MouseY = Event.MouseButton.Y;
+				float MouseX = Event.MouseButton.X - WindowMidX;
+				float MouseY = Event.MouseButton.Y - WindowMidY;
 				SuperVector2f direction(MouseX, MouseY);
-				direction -= mainPlanet.GetShape().GetCenter();
+				direction = mainPlanet.GetShape().GetCenter() - direction;
 				direction.Normalize();
 				cout << " Mouse was clicked at " << Event.MouseButton.X << "," << Event.MouseButton.Y << " I am at " << mainPlanet.GetShape().GetPosition().x << "," << mainPlanet.GetShape().GetPosition().y << " direction = " << direction << std::endl;
 
-				mainPlanet.ApplyForce(direction, 5);
+				mainPlanet.ApplyForce(direction, 3);
 			}
 		}
 
