@@ -5,6 +5,10 @@ OBJCOMPILE=g++ ${CFLAGS}
 
 all: Hello
 
+
+Planet.o: Planet.cpp Planet.hpp
+	${COMPILE} -c Planet.cpp
+
 Hello: Hello.cpp SuperVector2f.o
 	${EXECCOMPILE} -o Hello SuperVector2f.o Hello.cpp
 
