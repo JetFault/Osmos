@@ -34,10 +34,8 @@ int main() {
 		// Clear screen
 		App.Clear();
 
-		// Draw predefined shapes
-		App.Draw(sf::Shape::Line(10, 10, 710, 100, 15, sf::Color::Red));
+		//draw the circle
 		App.Draw(sf::Shape::Circle(200, 200, 100, sf::Color::Yellow));
-		App.Draw(sf::Shape::Rectangle(350, 200, 600, 350, sf::Color::Green));
 
 		// Finally, display the rendered frame on screen
 		App.Display();
